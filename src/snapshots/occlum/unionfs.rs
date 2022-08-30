@@ -172,7 +172,7 @@ impl Snapshotter for Unionfs {
         }
 
         // create environment for Occlum
-        create_environment(mount_path)?;
+        //create_environment(mount_path)?;
 
         nix::mount::umount(mount_path)?;
 
