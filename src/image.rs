@@ -230,14 +230,11 @@ impl ImageClient {
             _ => auth.expect("unexpected uninitialized auth"),
         };
 
-        let max_concurrent_download = std::thread::available_parallelism()
-            .map_or(DEFAULT_MAX_CONCURRENT_DOWNLOAD, |v| v.get());
-
         let mut client = PullClient::new(
             reference,
             &self.config.work_dir.join("layers"),
             &auth,
-            max_concurrent_download,
+            DEFAULT_MAX_CONCURRENT_DOWNLOAD,
         )?;
         let (image_manifest, image_digest, image_config) = client.pull_manifest().await?;
 

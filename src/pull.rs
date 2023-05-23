@@ -28,7 +28,7 @@ const ERR_NO_DECRYPT_CFG: &str = "decrypt_config is None";
 const ERR_BAD_UNCOMPRESSED_DIGEST: &str = "unsupported uncompressed digest format";
 const ERR_BAD_COMPRESSED_DIGEST: &str = "unsupported compressed digest format";
 
-pub const DEFAULT_MAX_CONCURRENT_DOWNLOAD: usize = 6;
+pub const DEFAULT_MAX_CONCURRENT_DOWNLOAD: usize = 4;
 
 /// The PullClient connects to remote OCI registry, pulls the container image,
 /// and save the image layers under data_dir and return the layer meta info.
