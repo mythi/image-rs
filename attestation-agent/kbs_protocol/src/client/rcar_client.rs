@@ -13,7 +13,7 @@ use log::{debug, warn};
 use resource_uri::ResourceUri;
 use serde::Deserialize;
 use serde_json::json;
-use sha2::{Digest, Sha384};
+use sha2::{Digest, Sha512};
 
 use crate::{
     api::KbsClientCapabilities,
@@ -189,7 +189,7 @@ impl KbsClient<Box<dyn EvidenceProvider>> {
         nonce: String,
     ) -> Result<String> {
         debug!("Challenge nonce: {nonce}");
-        let mut hasher = Sha384::new();
+        let mut hasher = Sha512::new();
         hasher.update(runtime_data);
 
         let ehd = match tee {
